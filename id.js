@@ -5,8 +5,8 @@
   hhaW4oKnppcChzWy0yOjotMl0sIHNbOjotMl0pKSk=
 \*======================================================================*/
 
-if (NAMESPACE == null
-        || typeof (NAMESPACE) == 'undefined') {
+if (typeof (NAMESPACE) == 'undefined'
+        || NAMESPACE == null) {
     NAMESPACE = {};
 
     // Creates an object that allocates a new or references an
@@ -26,13 +26,13 @@ if (NAMESPACE == null
         var getExpensiveResource = function () {
             return _expensive_resource;
         }
-        
+
         persona.getExpensiveResource = getExpensiveResource;
 
         var getId = function () {
             return _id;
         }
-        
+
         persona.getId = getId;
 
         var close = function () {
@@ -41,11 +41,11 @@ if (NAMESPACE == null
         }
 
         persona.close = close;
-        
+
         // Private methods
         function _lookupOrCreateExpensiveResourceById(id) {
             _expensive_resource = _all_ids[id];
-            
+
             if (_expensive_resource == null) {
                 // Just pretend for the sake of this example
                 _expensive_resource = {
@@ -54,13 +54,13 @@ if (NAMESPACE == null
 
                 _all_ids[id] = _expensive_resource;
             }
-            
+
             return _expensive_resource;
         }
-        
+
         // Initialization
         _expensive_resource = _lookupOrCreateExpensiveResourceById(id);
-        
+
         return persona;
     }
 
