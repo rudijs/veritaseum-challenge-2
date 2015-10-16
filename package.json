@@ -1,0 +1,25 @@
+{
+  "name": "veritaseum-challenge-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "id.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rudijs/veritaseum-challenge-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rudijs/veritaseum-challenge-2/issues"
+  },
+  "homepage": "https://github.com/rudijs/veritaseum-challenge-2#readme",
+  "devDependencies": {
+    "mocha": "^2.3.3"
+  }
+}

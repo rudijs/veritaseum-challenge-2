@@ -5,9 +5,9 @@
   hhaW4oKnppcChzWy0yOjotMl0sIHNbOjotMl0pKSk=
 \*======================================================================*/
 
-if (typeof (NAMESPACE) == 'undefined'
-        || NAMESPACE == null) {
-    NAMESPACE = {};
+if (typeof (NAMESPACE) == 'undefined' || NAMESPACE == null) {
+
+    var NAMESPACE = {};
 
     // Creates an object that allocates a new or references an
     // existing very expensive resource associated with `id`
@@ -34,6 +34,14 @@ if (typeof (NAMESPACE) == 'undefined'
         }
 
         persona.getId = getId;
+
+        // Add function to return _all_ids
+        var getAllIds = function () {
+            return _all_ids;
+        }
+
+        // Add public access to _all_ids
+        persona.getAllIds = getAllIds;
 
         var close = function () {
             delete _all_ids[_id];
@@ -65,4 +73,17 @@ if (typeof (NAMESPACE) == 'undefined'
     }
 
     NAMESPACE.resource = resource;
+
+    // Debug
+
+    var account = NAMESPACE.resource('abc');
+
+    // If id is a number this will create an array of 11 items - the 1st 10 being null
+    // var account = NAMESPACE.resource(10);
+
+    console.log(account.getId());
+    console.log(account.getAllIds());
+    console.log(account.getExpensiveResource());
+    account.close();
+
 }
